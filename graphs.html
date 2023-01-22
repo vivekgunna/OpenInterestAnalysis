@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!--  <div class="openInterest" style="position: relative; height:50vh; width:25vw">-->
+    <div class="openInterest" style="position: relative; height:50vh; width:25vw">
+
+      <canvas class = "overAllOi" id="oiAnalysis"></canvas>
+      <script>
+        var ctx = document.getElementById('oiAnalysis').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Call OI', 'Call Change', 'Put OI', 'Put Change', 'Net L/S', ' ',
+                'Call OI', 'Call Change', 'Put OI', 'Put Change', 'Net L/S'],
+                datasets: [{
+                    label: 'OI Analysis',
+                    data: [2242, 1128, 1602, 433, -695, 0 , 1241, 467, 1121, 447, 20],
+                    backgroundColor: [
+                        'rgb(255, 0, 0)',
+                        'rgb(255, 100, 75)',
+                        'rgb(50, 150, 100)',
+                        'rgb(75, 255, 175)',
+                        'rgb(50, 100, 255)',
+                        'rgb(255, 255, 255)',
+                        'rgb(255, 0, 0)',
+                        'rgb(255, 100, 75)',
+                        'rgb(50, 150, 100)',
+                        'rgb(75, 255, 175)',
+                        'rgb(50, 100, 255)'
+                    ],
+                    borderWidth: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+      </script>
+
+      <canvas class = "fiiOi" id="fiiOi"></canvas>
+      <script>
+        var ctx = document.getElementById('fiiOi').getContext('2d');
+        var fiiOi = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Call OI', 'Call Change', 'Put OI', 'Put Change', 'Net L/S'],
+                datasets: [{
+                    label: 'Fii OpenInterest',
+                    data: [145, 62, 308, 71, -9],
+                    backgroundColor: [
+                        'rgb(255, 0, 0)',
+                        'rgb(255, 100, 75)',
+                        'rgb(50, 150, 100)',
+                        'rgb(75, 255, 175)',
+                        'rgb(50, 100, 255)'
+                    ],
+                    borderWidth: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+      </script>
+
+      <div>
+          <canvas id="cashFutures"></canvas>
+          <script>
+          var ctx = document.getElementById('cashFutures').getContext('2d');
+          var cashFutures = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                  labels: ['DII Cash', 'FII Cash', 'FII Futures'],
+                  datasets: [{
+                      label: 'Cash & Futures',
+                      data: [1510, -2002, 1027],
+                      backgroundColor: [
+                          'rgb(255, 0, 0)',
+                          'rgb(50, 150, 100)',
+                          'rgb(50, 100, 255)'
+                      ],
+                      borderWidth: 0.1
+                  }]
+              },
+              options: {
+                  scales: {
+                      y: {
+                          beginAtZero: true
+                      }
+                  }
+              }
+          });
+        </script>
+
+          <canvas id="myPieChart"></canvas>
+          <script>
+        var ctx = document.getElementById('myPieChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Long', 'Short'],
+                datasets: [{
+                    data: [32, 68],
+                    backgroundColor: [
+                        'rgb(50, 150, 100)',
+                        'rgb(255, 0, 0)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+        });
+      </script>
+      </div>
+
+    </div>
+
+</body>
+</html>
